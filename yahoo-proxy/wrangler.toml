@@ -1,0 +1,21 @@
+# HOOPS AI · Yahoo Fantasy OAuth 代理
+name = "hoops-ai-yahoo-proxy"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# 部署后 Cloudflare 会给你一个 https://hoops-ai-yahoo-proxy.<你的子域>.workers.dev
+# 把它填到下面的 PUBLIC_BASE_URL（必须和 Yahoo App 里登记的 Redirect URI 一致）
+
+[vars]
+ALLOWED_ORIGIN = "https://fhz20011019-stack.github.io"
+PUBLIC_BASE_URL = "https://hoops-ai-yahoo-proxy.YOUR-SUBDOMAIN.workers.dev"
+
+# KV：存 Yahoo token（命令行创建后把 id 填这里）
+#   npx wrangler kv namespace create HOOPS_KV
+[[kv_namespaces]]
+binding = "HOOPS_KV"
+id = "在此填入你的 KV namespace id"
+
+# Secrets（不要写在这个文件里！用命令行设置）：
+#   npx wrangler secret put YAHOO_CLIENT_ID
+#   npx wrangler secret put YAHOO_CLIENT_SECRET
