@@ -1,0 +1,14 @@
+{
+  "name": "hoops-ai-yahoo-proxy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "kv": "wrangler kv namespace create HOOPS_KV",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}
